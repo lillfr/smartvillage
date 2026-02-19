@@ -7,7 +7,7 @@ import { join } from 'path';
 const db = new Database();
 
 // Проверка существования папки public
-const publicDir = 'public';
+const publicDir = '../public';
 if (!existsSync(publicDir)) {
     console.error(`Error: Directory '${publicDir}' does not exist!`);
     console.info('Create it and add news.html file');
