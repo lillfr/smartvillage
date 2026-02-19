@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Финансы</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Финансы</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="community.html">Сообщество</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <aside class="sidebar">
+                <h4>Разделы:</h4>
+                <a class="btn" href="finances.html">Оплата услуг</a>
+                <br><br><br>
+                <a class="btn" href="resource-analysis.html">Анализ использования ресурсов</a>
+                <br><br><br>
+                <a class="btn" href="guest-permits.html">Оформление гостевых пропусков</a>
+            </aside>
+            <section class="payment-services">
+                <h4>Оплата услуг</h4>
+                <div class="bills">
+                    <h5>Текущие счета:</h5>
+                    <ul id="billsList">
+                        <li class="bill-item">
+                            <span class="service-name">Коммунальные услуги:</span>
+                            <span class="amount-container">
+                                <span class="amount">1500</span> руб.
+                                <button class="pay" data-amount="1500">Оплатить</button>
+                            </span>
+                        </li>
+                        <li class="bill-item">
+                            <span class="service-name">Охрана:</span>
+                            <span class="amount-container">
+                                <span class="amount">800</span> руб.
+                                <button class="pay" data-amount="800">Оплатить</button>
+                            </span>
+                        </li>
+                        <li class="bill-item">
+                            <span class="service-name">Уборка:</span>
+                            <span class="amount-container">
+                                <span class="amount">600</span> руб.
+                                <button class="pay" data-amount="600">Оплатить</button>
+                            </span>
+                        </li>
+                    </ul>
+    
+                </div>
+                <h5>История транзакций:</h5>
+                <ul id="transactionHistory">
+                    <!-- История транзакций будет отображаться здесь -->
+                </ul>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p>© 2025 Коттеджный поселок. Все права защищены.</p>
+    </footer>
+    <script src="scripts.js"></script>
+    <script>
+        const transactions = [];
+
+        document.querySelectorAll('.pay').forEach(button => {
+            button.addEventListener('click', function() {
+                const amount = this.dataset.amount;
+                const confirmation = confirm(`Вы уверены, что хотите оплатить сумму: ${amount} руб.?`);
+                if (confirmation) {
+                    const transactionMessage = `Оплачено: ${amount} руб.`;
+                    transactions.push(transactionMessage);
+                    updateTransactionHistory();
+                    alert(transactionMessage); // Сообщение об успешной оплате
+                }
+            });
+        });
+
+        function updateTransactionHistory() {
+            const transactionHistory = document.getElementById('transactionHistory');
+            transactionHistory.innerHTML = ''; // Очищаем текущее состояние
+
+            transactions.forEach(transaction => {
+                const li = document.createElement('li');
+                li.textContent = transaction;
+                transactionHistory.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>

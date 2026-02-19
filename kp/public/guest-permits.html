@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Оформление гостевого пропуска</title>
+    <style>
+        label {
+            margin-left: 50px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        h1{
+            margin-left: 60px;
+            text-align: center;
+        }
+        temp{
+            margin-left: 50px;
+        }
+        input[type="text"],
+        textarea {
+            margin-left: 50px;
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing:content-box; 
+            text-align: left;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #2980B9;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            margin-left: 50px;
+            margin-bottom: 59px;
+        }
+
+        button:hover {
+            background-color: #3e8e41;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .error {
+            color: red;
+            margin-bottom: 10px;
+        }
+        footer{
+            position: fixed;
+            right: 0%;
+            bottom: 0%;
+            width: 100%;
+        }
+    
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Коттеджный поселок</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="community.html">Сообщество</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+                <li><a href="autorisation.html">Личный кабинет</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <form id="deliveryForm">
+        <div class="container">
+            <h1><br>Оформление гостевого пропуска</h1>
+        
+            <form id="guestPassForm">
+                <div class="error" id="errorMessage"></div>
+        
+                <label for="guest-name">ФИО гостя:</label>
+                <input type="text" id="guest-name" name="guest-name" required>
+        
+                <label for="guest-document">Номер документа гостя:</label>
+                <input type="text" id="guest-document" name="guest-document" required>
+
+                <label for="car-number">Номер машины (необязательно):</label>
+            <input type="text" id="car-number" name="car-number" required>
+           
+        <label for="comments">Комментарии к заказу:</label>
+        <textarea id="comments" name="comments" rows="4"></textarea>
+
+        <button type="submit">Подтвердить</button>
+        <br>
+        <br>
+    </form>
+</div>
+
+    <script>
+        document.getElementById("deliveryForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Предотвращаем отправку формы по умолчанию
+
+            // Валидация данных (можно расширить)
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const address = document.getElementById("address").value;
+            const deliveryDate = document.getElementById("deliveryDate").value;
+
+            if (!name || !email || !phone || !address || !deliveryDate) {
+                document.getElementById("errorMessage").textContent = "Пожалуйста, заполните все обязательные поля.";
+                return;
+            } else {
+                document.getElementById("errorMessage").textContent = ""; // Очищаем сообщение об ошибке
+            }
+
+            // Отправка данных (замените на ваш код отправки)
+            const formData = {
+                name: name,
+                email: email,
+                phone: phone,
+                address: address,
+                number: document.getElementById("number").value,
+                deliveryDate: deliveryDate,
+                comments: document.getElementById("comments").value
+            };
+
+            // Пример отправки данных (можно использовать fetch или XMLHttpRequest)
+            console.log("Данные для отправки:", formData);  // Вывод в консоль
+
+           
+
+            alert("Пропуск успешно оформлен! (Демонстрация)");
+        });
+    </script>
+
+
+</body>
+<footer>
+    <p>© 2025 Коттеджный поселок. Все права защищены.</p>
+</footer>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <header>
+        <div class="logo">Коттеджный поселок</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="auth-container">
+            <h2>Авторизация</h2>
+            <!-- Контейнер для картинки животного -->
+            <div class="animal-container">
+                <!-- Картинка животного (собака) -->
+                <img src="https://yt3.googleusercontent.com/ytc/AIdro_nrl86_thnWP39RLY-jkiPsQUGmuFcyFNgQjq1Wk3VKjl0=s900-c-k-c0x00ffffff-no-rj" alt="Собака" class="animal-image">
+                <!-- Левый глаз -->
+                <div class="eye left">
+                    <div class="pupil" id="leftPupil"></div>
+                </div>
+                <!-- Правый глаз -->
+                <div class="eye right">
+                    <div class="pupil" id="rightPupil"></div>
+                </div>
+            </div>
+            <div class="error" id="errorMessage"></div>
+            <form id="authForm">
+                <label for="username">Логин:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Войти</button>
+            </form>
+            <div class="register-link">
+                <p>Еще нет аккаунта? <a style="background-color: transparent;" href="register.html">Зарегистрируйтесь</a></p>
+                <p>Авторизируясь, вы соглашаетесь <br>с <a style="background-color: transparent; padding: 0%;" href="privacy.html" target="_blank">нашей политикой конфиденциальности</a></p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Коттеджный поселок. Все права защищены.</p>
+    </footer>
+
+    <script>
+        // Скрипт для авторизации
+        document.getElementById("authForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Предотвращаем отправку формы по умолчанию
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Простая валидация (можно расширить)
+            if (!username || !password) {
+                document.getElementById("errorMessage").textContent = "Пожалуйста, заполните все поля.";
+                return;
+            } else {
+                document.getElementById("errorMessage").textContent = ""; // Очищаем сообщение об ошибке
+            }
+
+            // Пример проверки логина и пароля (можно заменить на запрос к серверу)
+            if (username === "user" && password === "password") {
+                alert("Авторизация успешна!");
+                window.location.href = "cabin.html"; // Перенаправляем в личный кабинет
+            } else {
+                document.getElementById("errorMessage").textContent = "Неверный логин или пароль.";
+            }
+        });
+
+        // Скрипт для эффекта слежения глазами за курсором
+        const leftPupil = document.getElementById("leftPupil");
+        const rightPupil = document.getElementById("rightPupil");
+
+        document.addEventListener("mousemove", (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+
+            // Функция для ограничения движения зрачков внутри глаз
+            const movePupil = (pupil, eye, x, y) => {
+                const eyeRect = eye.getBoundingClientRect();
+                const eyeCenterX = eyeRect.left + eyeRect.width / 2;
+                const eyeCenterY = eyeRect.top + eyeRect.height / 2;
+
+                // Вычисляем смещение зрачка относительно центра глаза
+                const deltaX = (x - eyeCenterX) / 10; // Увеличиваем делитель для более свободного движения
+                const deltaY = (y - eyeCenterY) / 10;
+
+                // Ограничиваем движение зрачка, чтобы он не выходил за границы глаза
+                const maxDeltaX = (eyeRect.width - pupil.offsetWidth) / 2;
+                const maxDeltaY = (eyeRect.height - pupil.offsetHeight) / 2;
+
+                const clampedDeltaX = Math.max(-maxDeltaX, Math.min(deltaX, maxDeltaX));
+                const clampedDeltaY = Math.max(-maxDeltaY, Math.min(deltaY, maxDeltaY));
+
+                // Применяем смещение к зрачку
+                pupil.style.transform = `translate(${clampedDeltaX}px, ${clampedDeltaY}px)`;
+            };
+
+            // Двигаем зрачки
+            movePupil(leftPupil, leftPupil.parentElement, x, y);
+            movePupil(rightPupil, rightPupil.parentElement, x, y);
+        });
+    </script>
+</body>
+</html>

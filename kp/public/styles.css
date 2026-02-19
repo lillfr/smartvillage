@@ -1,0 +1,533 @@
+
+*{
+    /*font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, monospace;
+    */
+    font-style: regular;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+    }
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #eaeaea; 
+    color: #2C3E50; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Гарантирует, что тело займет как минимум всю высоту экрана */
+}
+
+header {
+    background: linear-gradient(to right, #4A90E2, #0056b3); 
+    color: #ffffff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); 
+    border-radius: 0 0 20px 20px;
+    height: 35px; 
+}
+.image{
+    max-width: 200px; /* Ограничиваем максимальную ширину фотографии */    
+    height: auto;
+}
+
+header .logo {
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none; /* Убирает подчеркивание */
+    color: inherit; 
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    
+}
+
+nav ul li {
+    margin-left: 0px;
+    margin-top: 10px;
+}
+
+nav ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-weight: 500; 
+    transition: color 0.3s;
+}
+
+.pay {
+    float: right;
+    margin-left: auto; /* Отодвигаем кнопку вправо */
+    margin-top: 5px;
+}
+
+.bill-item {
+    display: flex; /* Используем Flexbox для расположения элементов */
+    justify-content: space-between; /* Элементы размещаем по краям */
+    
+    
+    border-bottom: 1px solid #ccc; /* Добавление разделительной линии */
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+
+.service-name {
+    display: block; /* Отображение названий услуг на отдельной строке */
+    font-weight: bold; /* Жирный текст для названий */
+}
+
+.amount-container {
+    display: flex; /* Размещаем сумму и кнопку в строку */
+    align-items: center; /* Выравнивание по вертикали */
+    margin-bottom: 5px;
+}
+
+.amount {
+    margin-right: 10px; /* Отступ справа от суммы */
+}
+.community-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.community-container h1 {
+    text-align: center;
+    color: #2C3E50;
+    margin-bottom: 20px;
+}
+
+.community-container .section {
+    margin-bottom: 30px;
+}
+
+.community-container .section h2 {
+    color: #2980B9;
+    margin-bottom: 15px;
+}
+
+.community-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.community-container ul li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.community-container ul li:hover {
+    background-color: #d5dbdb;
+}
+/*Что копирую?*/
+.community-container ul li a {
+    color: #2C3E50;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.community-container ul li a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+    flex-grow: 1; /* Позволяет main занимать все доступное пространство между заголовком и подвалом */
+}
+.user-profile {    
+    display: flex; /* Используем Flexbox для горизонтального расположения */    
+    align-items: center; /* Вертикальное выравнивание */
+}
+.user-info {    
+    flex: 1; /* Позволяет зоне с информацией о пользователе занимать оставшееся пространство */    
+    padding-right: 20px; /* Отступ справа от текста */
+}
+.user-photo {    
+    max-width: 200px; /* Ограничиваем максимальную ширину фотографии */    
+    height: auto; /* Сохраняем пропорции фотографии */
+}
+
+
+/* Контейнер с колонками */
+.container {
+    display: flex;
+    justify-content: space-between; /* Распределяет пространство между боковыми панелями и контентом */
+    flex-wrap: wrap; /* Позволяет элементам переходить на следующую строку при малом размере экрана */
+}
+
+/* Боковые панели */
+.sidebar {
+    flex: 1 1 200px; /* Позволяет боковым панелям расти и сжиматься, но с минимальной шириной 200px */
+    background-color: #ffffff; 
+    padding: 20px;
+    margin: 10px;
+    border-radius: 15px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.payment-services {
+    flex: 1 1 200px; /* Позволяет боковым панелям расти и сжиматься, но с минимальной шириной 200px */
+    background-color: #ffffff; 
+    padding: 20px;
+    margin: 10px;
+    border-radius: 15px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); 
+}
+.payment-services:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); 
+}
+/* Стиль только для поля поиска в news.html */
+#searchInput {
+    width: 100%;
+    max-width: 500px; /* Шире чем стандартное поле */
+    padding: 15px 25px; /* Большие отступы */
+    font-size: 12px; /* Увеличенный шрифт */
+}
+
+.content {
+    flex: 2 1 400px; /* Основной контент будет занимать больше пространства */
+    padding: 20px;
+    margin: 10px;
+    background-color: #ffffff; 
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+h1 {
+    color: #2C3E50; 
+    font-size: 36px; 
+    margin-bottom: 10px; 
+    margin-left: 10px;
+}
+
+h2 {
+    color: #2980B9; 
+    margin-bottom: 15px; 
+    margin-top: 10px;
+}
+h3 {    
+    color: #ffffff;     
+    font-size: 36px;     
+    margin-bottom: 10px; 
+}
+h4{
+    color: #000000;     
+    font-size: 36px;     
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+h5{
+    font-size: large;
+    margin: 0px;
+}
+
+.razdel {    
+    font-size: 24px; /* Увеличьте размер шрифта по вашему усмотрению */    
+    padding: 10px 20px; /* Вы можете также настроить отступ внутри кнопки */
+}
+
+.content {
+    flex: 2 1 400px; /* Основной контент будет занимать больше пространства */
+    padding: 20px;
+    margin: 10px;
+    background-color: #ffffff; 
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    text-align: center;
+    background: linear-gradient(to right, #4A90E2, #0056b3); 
+    color: white;
+    border-radius: 30px 30px 0 0; 
+    font-size: 15px;
+}
+p{
+    margin-left: 10px;
+    padding: 0px;
+}
+/* Эстетичные кнопки */
+button {
+    background-color: #2980B9; 
+    color: white; 
+    border: none;
+    border-radius: 25px; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+    font-size: 16px; 
+}
+
+button:hover {
+    background-color: #3e8e41; 
+}
+
+.btn{
+    background-color: #2980B9; 
+    color: white; 
+    border: none;
+    border-radius: 25px; 
+    padding: 10px 20px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+    font-size: 18px; 
+}
+.btn:hover {
+    background-color: #3e8e41; 
+}
+.uslbtns{
+display:flex;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+ul li {
+    margin-bottom: 10px; 
+    padding: 8px; 
+
+}
+a{
+    text-decoration: none;
+    padding: 10px; 
+    padding-left: 20px;
+    padding-right: 20px;
+    color:#2c3e50;
+    background-color: #ecf0f1; 
+    border-radius: 20px; 
+    transition: background-color 0.3s; 
+}
+
+a:hover {
+    background-color: #d5dbdb; 
+}
+
+.uslbtns2 {
+    color: #2980B9; 
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+    transition: color 0.3s;
+}
+
+.uslbtns2:hover {
+    color: #1A5276;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+.sidebar h2 {
+    color: #2980B9; 
+    margin-bottom: 15px; 
+    margin-top: 10px;
+    margin-left: 5%; /* Добавляем отступ как у "Услуги" */
+}
+.backgr{
+    background-color: #ecf0f1;
+    border-radius: 10px; 
+}
+
+.auth-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .auth-container h2 {
+            text-align: center;
+            color: #2C3E50;
+            margin-bottom: 20px;
+        }
+
+        .auth-container label {
+            display: block;
+            margin-bottom: 5px;
+            color: #2C3E50;
+        }
+
+        .auth-container input[type="text"],
+        .auth-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .auth-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2980B9;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .auth-container button:hover {
+            background-color: #1A5276;
+        }
+
+        .auth-container .error {
+            color: red;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .auth-container .register-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .auth-container .register-link a {
+            color: #2980B9;
+            text-decoration: none;
+        }
+
+        .auth-container .register-link a:hover {
+            text-decoration: underline;
+        }
+     
+        /* Контейнер для картинки животного */
+        .animal-container {
+            position: relative;
+            width: 150px; /* Размер контейнера */
+            height: 150px;
+            margin: 0 auto 20px; /* Центрируем и добавляем отступ снизу */
+        }
+
+        /* Статичная картинка животного */
+        .animal-image {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* Глаза животного */
+        .eye {
+            position: absolute;
+            width: 20px; /* Уменьшенный размер глаз */
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            border: 2px solid #000;
+            overflow: hidden; /* Чтобы зрачки не выходили за границы глаз */
+        }
+
+        /* Левый глаз */
+        .eye.left {
+            top: 42%;
+            left: 28%;
+        }
+
+        /* Правый глаз */
+        .eye.right {
+            top: 42%;
+            left: 56%;
+        }
+
+        /* Зрачки */
+        .pupil {
+            position: absolute;
+            width: 10px; /* Уменьшенный размер зрачков */
+            height: 10px;
+            background-color: black;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Центрируем зрачки */
+            transition: transform 0.1s ease-out; /* Плавное движение */
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 25%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .container2 {
+            display: flex;
+            justify-content: space-around; /* Распределяет пространство между боковыми панелями и контентом */
+            
+            flex-wrap: wrap; /* Позволяет элементам переходить на следующую строку при малом размере экрана */
+        }
+        
+        .clname{
+            font-size: larger;
+        }
+/* Основные стили из index.html остаются, добавляем новые */
+
+/* Стили для новостей */
+.news-card {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    transition: all 0.3s ease;
+}
+
+.news-card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.news-date {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.news-title {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #3498db;
+}
+
+.news-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+/* Модальное окно */
+.modal-content {
+    background-color: #f8f9fa;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .news-card {
+        margin-bottom: 15px;
+    }
+}

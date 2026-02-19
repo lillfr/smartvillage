@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма регистрации</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+        
+        h1 {
+            color: #333;
+            margin-left: 550px;
+        }
+        form {
+            background: #ffffff;
+            margin-left: 450px; 
+            margin-right: 450px;
+            padding: 20px;/**/
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+        input[type="text"],
+        input[type="date"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #2980B9;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Коттеджный поселок</div>
+        <nav>
+            <ul>
+                <li><a href="site.html">Главная</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Форма регистрации</h1>
+    <form action="server.js" method="POST">
+        
+        <label for="fullName">ФИО:</label><br>
+        <input type="text" id="fullName" name="fullName" placeholder="Введите ваше ФИО" required>
+
+        <label for="birthDate"><br>Дата рождения:</label><br>
+        <input type="date" id="birthDate" name="birthDate" required>
+
+        <label for="gender"><br>Пол:</label><br>
+        <select id="gender" name="gender" required>
+            <option value="" disabled selected>Выберите ваш пол</option>
+            <option value="Мужской">Мужской</option>
+            <option value="Женский">Женский</option>
+        </select>
+
+        <label for="email"><br>Электронная почта:</label><br>
+        <input type="email" id="email" name="email" placeholder="Введите ваш email" required>
+
+        <label for="phone"><br>Телефон:</label><br>
+        <input type="tel" id="phone" name="phone" placeholder="Введите ваш телефон (цифры после 8)" required pattern="[0-9]{10}">
+
+        <label for="contractNumber"><br>Номер договора о купле участка:</label><br>
+        <input type="text" id="contractNumber" name="contractNumber" placeholder="Введите номер вашего участка" required>
+
+        <label for="landAddress"><br>Адрес участка:</label><br>
+        <input type="text" id="landAddress" name="landAddress" placeholder="Введите адрес участка" required>
+
+        <label for="vehicleNumber"><br>Номер транспортного средства:</label><br>
+        <input type="text" id="vehicleNumber" name="vehicleNumber" placeholder="Введите номер автомобиля" required>
+
+        <label for="animalsInfo"><br>Информация о животных (при наличии):</label><br>
+        <input type="text" id="animalsInfo" name="animalsInfo" placeholder="Введите информацию о животных">
+
+        <label for="passportNumber"><br>Серия и номер паспорта:</label><br>
+        <input type="text" id="passportNumber" name="passportNumber" placeholder="Введите серию и номер паспорта" required>
+        <label for="LoginName"><br>Ваш будущий логин:</label><br>
+        <input type="text" id="LoginName" name="LoginName" placeholder="Введите новый логин" required>
+        <label for="password"><br>Придумайте новый пароль:</label><br>
+        <input type="text" id="password" name="password" placeholder="Введите новый пароль" required>
+        <p>Регистрируясь, вы соглашаетесь <br>с <a style="background-color: transparent; padding: 0%; color:#2980B9" href="privacy.html" target="_blank">нашей политикой конфиденциальности</a></p><br>
+        <button type="submit">Зарегистрироваться</button><br><br>
+    </form>
+
+    <footer>
+        <p>© 2025 Коттеджный поселок. Все права защищены.</p>
+    </footer>
+</body>
+</html>
+
